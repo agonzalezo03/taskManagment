@@ -1,0 +1,64 @@
+<mat-dialog-content class="d-flex p-4">
+  <form [formGroup]="taskForm" (ngSubmit)="newTask()" class="form-dialog">
+    <mat-tab-group>
+      <mat-tab label="Tarea">
+        <div class="d-flex flex-column">
+          <mat-form-field class="example-full-width">
+            <mat-label>Name</mat-label>
+            <input matInput formControlName="name" placeholder="Ex. Pizza" />
+          </mat-form-field>
+
+          <mat-form-field class="example-full-width">
+            <mat-label>Description</mat-label>
+            <textarea matInput formControlName="description" placeholder="Ex. It makes me feel..."></textarea>
+          </mat-form-field>
+
+          <mat-form-field>
+            <mat-label>State</mat-label>
+            <mat-select formControlName="state">
+              <mat-option *ngFor="let state of states" [value]="state">{{ state }}</mat-option>
+            </mat-select>
+          </mat-form-field>
+
+          <div class="p-2 d-flex justify-content-center align-items-center">
+          <mat-slider class="w-75" min="1" max="5" step="0.5">
+            <input matSliderThumb formControlName="dificulty" value="1.5">
+          </mat-slider>
+        </div>
+        </div>
+      </mat-tab>
+
+      <mat-tab label="Categorias">
+        <mat-form-field class="w-100">
+          <mat-label>Category</mat-label>
+          <mat-select (selectionChange)="addCat($event.value)">
+            <mat-option *ngFor="let cat of allCategories" [value]="cat">{{ cat.name }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <mat-chip-grid #chipGrid aria-label="Enter fruits">
+          @for (cat of selectedCategories; track cat) {
+            <mat-chip-row
+              (removed)="removeCat(cat)"
+            >
+              {{cat.name}}
+              <button matChipRemove [attr.aria-label]="'remove ' + cat.name">
+                <mat-icon>cancel</mat-icon>
+              </button>
+            </mat-chip-row>
+          }
+
+        </mat-chip-grid>
+
+
+      </mat-tab>
+
+      <mat-tab label="Asignados"> Content 2 </mat-tab>
+    </mat-tab-group>
+
+    <mat-dialog-actions class="d-flex gap-3">
+      <button mat-flat-button color="warn" (click)="onNoClick()">Cerrar</button>
+      <button mat-flat-button type="submit" color="primary">Crear</button>
+    </mat-dialog-actions>
+  </form>
+</mat-dialog-content>

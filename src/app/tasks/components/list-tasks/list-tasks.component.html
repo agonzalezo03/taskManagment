@@ -1,0 +1,15 @@
+<div class="listTask d-flex flex-column align-items-center">
+  <h2 class="listTitle">{{state}}</h2>
+
+  <div
+  class="tasks"
+  [attr.data-state]="state"
+  cdkDropList
+  [cdkDropListData]="taskList"
+  (cdkDropListDropped)="drop($event)"
+  >
+  @for (task of taskList; track $index) {
+    <app-task-card cdkDrag  [cdkDragData]="task" [task]="task"></app-task-card>
+  }
+</div>
+</div>

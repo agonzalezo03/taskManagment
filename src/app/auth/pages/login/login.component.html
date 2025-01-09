@@ -1,13 +1,15 @@
 <div class="d-flex">
-  <div class="d-flex flex-column form">
+  <form [formGroup]="form" (ngSubmit)="login()" class="d-flex flex-column form">
     <mat-form-field>
       <mat-label>Nombre</mat-label>
-      <input matInput>
+      <input formControlName="name" matInput>
     </mat-form-field>
     <mat-form-field>
       <mat-label>Contraseña</mat-label>
-      <input matInput>
+      <input formControlName="password" type="password" matInput>
     </mat-form-field>
 
-</div>
+    <button type="submit" mat-flat-button color="primary">Entrar</button>
+
+</form>
 </div>

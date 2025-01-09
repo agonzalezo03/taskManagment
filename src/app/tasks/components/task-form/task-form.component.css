@@ -1,0 +1,7 @@
+.form-dialog{
+  height: 50vh;
+  width: 50vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}

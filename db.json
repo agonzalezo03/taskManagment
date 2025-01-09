@@ -1,1 +1,26 @@
-{}
+{
+  "users": [
+    {
+      "id": "42e4",
+      "name": "admin",
+      "password": "admin"
+    }
+  ],
+  "tasks": [
+    {
+      "id": "2",
+      "name": "alfredo",
+      "state": "Pending"
+    }
+  ],
+  "categories": [
+    {
+      "id": "ccd8ab5c-150e-4ed2-9fef-7a87d33b5986",
+      "name": "cat"
+    },
+    {
+      "id": "da2a6a93-98f8-4f4c-8bae-0b250d76f7b8",
+      "name": "isciii"
+    }
+  ]
+}
