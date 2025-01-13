@@ -1,18 +1,17 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { map, Observable } from 'rxjs';
-import { User} from '../interfaces/user.interface'
+import { Observable } from 'rxjs';
+import { Rol } from '../interfaces/role.interface';
 
 @Injectable({
   providedIn: 'root'
 })
-export class UsersService {
+export class RolesService {
 
   URL = 'http://localhost:3000'
   constructor(private http: HttpClient) { }
 
-  getUsers(): Observable<User[]> {
-    return this.http.get<User[]>(`${this.URL}/users`);
-  }
-
+  getRoles(): Observable<Rol[]> {
+      return this.http.get<Rol[]>(`${this.URL}/roles`);
+    }
 }

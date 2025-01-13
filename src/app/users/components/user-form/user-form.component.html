@@ -1,0 +1,30 @@
+<form class="d-flex flex-column p-4" [formGroup]="userForm" (onSubmit)="addUser()" autocomplete="off">
+  <mat-form-field class="example-full-width">
+    <mat-label>Name</mat-label>
+    <input matInput formControlName="name" placeholder="Ex. Pizza" />
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width">
+    <mat-label>Password</mat-label>
+    <input matInput type="password" formControlName="password" placeholder="" />
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width">
+    <mat-label>Repeat Password</mat-label>
+    <input matInput type="password" formControlName="repassword" placeholder="" />
+  </mat-form-field>
+
+  <mat-form-field class="w-100">
+    <mat-label>Role</mat-label>
+    <mat-select formControlName="rol">
+      <mat-option *ngFor="let rol of allRoles" [value]="rol">{{ rol.name }}</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <div>
+    <mat-dialog-actions class="d-flex gap-3">
+      <button mat-flat-button color="warn" (click)="onNoClick()">Cerrar</button>
+      <button mat-flat-button type="submit" (click)="addUser()" color="primary">Crear</button>
+    </mat-dialog-actions>
+  </div>
+</form>

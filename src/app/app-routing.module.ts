@@ -20,6 +20,16 @@ const routes: Routes = [
     loadChildren: () => import('./tasks/tasks.module').then(m => m.TasksModule)
   },
   {
+    path: 'users',
+    canActivate: [isAuthenticatedGuard],
+    loadChildren: () => import('./users/users.module').then(m => m.UsersModule)
+  },
+  {
+    path: 'roles',
+    canActivate: [isAuthenticatedGuard],
+    loadChildren: () => import('./roles/roles.module').then(m => m.RolesModule)
+  },
+  {
     path: '**',
     redirectTo: 'auth'
   }

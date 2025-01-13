@@ -22,5 +22,10 @@
       "id": "da2a6a93-98f8-4f4c-8bae-0b250d76f7b8",
       "name": "isciii"
     }
+  ],
+  "roles": [
+    {
+      "name": "admin"
+    }
   ]
 }

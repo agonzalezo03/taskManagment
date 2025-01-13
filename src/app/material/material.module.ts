@@ -13,12 +13,15 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatSliderModule} from '@angular/material/slider';
+import {MatRadioModule} from '@angular/material/radio';
+
 
 import { DragDropModule } from '@angular/cdk/drag-drop';
 
 
 @NgModule({
   exports: [
+    MatAutocompleteModule,
     MatButtonModule,
     MatCardModule,
     MatChipsModule,
@@ -31,8 +34,8 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
     MatToolbarModule,
     DragDropModule,
     MatTabsModule,
-    MatSliderModule
-
+    MatSliderModule,
+    MatRadioModule,
   ]
 })
 export class MaterialModule { }

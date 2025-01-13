@@ -21,9 +21,9 @@
           </mat-form-field>
 
           <div class="p-2 d-flex justify-content-center align-items-center">
-          <mat-slider class="w-75" min="1" max="5" step="0.5">
-            <input matSliderThumb formControlName="dificulty" value="1.5">
-          </mat-slider>
+            <mat-slider min="0" max="100000" step="1000" showTickMarks discrete >
+              <input matSliderThumb>
+            </mat-slider>
         </div>
         </div>
       </mat-tab>
@@ -31,27 +31,33 @@
       <mat-tab label="Categorias">
         <mat-form-field class="w-100">
           <mat-label>Category</mat-label>
-          <mat-select (selectionChange)="addCat($event.value)">
-            <mat-option *ngFor="let cat of allCategories" [value]="cat">{{ cat.name }}</mat-option>
-          </mat-select>
+          <input
+            matInput
+            formControlName="categories"
+            placeholder="New Category..."
+            [matChipInputFor]="chipGrid"
+            [matAutocomplete]="auto"
+            [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+            (matChipInputTokenEnd)="addCat($event.value)"
+          />
+          <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)">
+            <mat-option *ngFor="let cat of filteredCategories" [value]="cat">
+              {{ cat.name }}
+            </mat-option>
+          </mat-autocomplete>
         </mat-form-field>
 
-        <mat-chip-grid #chipGrid aria-label="Enter fruits">
-          @for (cat of selectedCategories; track cat) {
-            <mat-chip-row
-              (removed)="removeCat(cat)"
-            >
-              {{cat.name}}
-              <button matChipRemove [attr.aria-label]="'remove ' + cat.name">
-                <mat-icon>cancel</mat-icon>
-              </button>
-            </mat-chip-row>
-          }
 
+        <mat-chip-grid #chipGrid>
+          <mat-chip-row *ngFor="let cat of selectedCategories" (removed)="removeCat(cat)">
+            {{ cat.name }}
+            <button matChipRemove [attr.aria-label]="'remove ' + cat.name">
+              <mat-icon>cancel</mat-icon>
+            </button>
+          </mat-chip-row>
         </mat-chip-grid>
-
-
       </mat-tab>
+
 
       <mat-tab label="Asignados"> Content 2 </mat-tab>
     </mat-tab-group>

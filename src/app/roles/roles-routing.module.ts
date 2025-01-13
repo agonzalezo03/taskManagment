@@ -1,16 +1,17 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { TasksLayoutComponent } from '../shared/components/tasks-layout/tasks-layout.component';
-import { UsersPageComponent } from './pages/users-page/users-page.component';
+import { RolesPageComponent } from './pages/roles-page/roles-page.component';
 
 const routes: Routes = [
   {
     path: '',
     component: TasksLayoutComponent,
     children: [
-      { path: 'list', component: UsersPageComponent},
+      { path: 'list', component: RolesPageComponent},
       {
-        path: '**', redirectTo: 'list'
+        path: '**',
+        redirectTo: 'list'
       }
     ]
   }
@@ -20,4 +21,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class UsersRoutingModule { }
+export class RolesRoutingModule { }

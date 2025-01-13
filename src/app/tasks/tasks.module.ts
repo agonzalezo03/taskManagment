@@ -8,7 +8,7 @@ import { TasksComponent } from './pages/tasks/tasks.component';
 import { TaskCardComponent } from './components/task-card/task-card.component';
 import { TaskFormComponent } from './components/task-form/task-form.component';
 import { NewTaskDialogComponent } from './components/new-task-dialog/new-task-dialog.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CategoriesModule } from '../categories/categories.module';
 
 
@@ -25,7 +25,8 @@ import { CategoriesModule } from '../categories/categories.module';
     TasksRoutingModule,
     ReactiveFormsModule,
     MaterialModule,
-    CategoriesModule
+    CategoriesModule,
+    FormsModule
   ],
   exports: [
     TasksComponent

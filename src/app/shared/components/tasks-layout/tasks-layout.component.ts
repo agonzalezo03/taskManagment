@@ -11,7 +11,9 @@ export class TasksLayoutComponent {
   private router = inject(Router)
 
   public menuItems = [
-    {name: 'task', url: '/task'}
+    {name: 'task', url: '/task'},
+    {name: 'users', url: '/users'},
+    {name: 'roles', url: '/roles'}
   ]
 
   navigate(item :{name: string, url: string}){

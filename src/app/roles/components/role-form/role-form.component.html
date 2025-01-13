@@ -1,0 +1,23 @@
+<form action="" class="p-3">
+  <mat-form-field class="example-full-width">
+    <mat-label>Name</mat-label>
+    <input matInput formControlName="name" placeholder="Ex. Pizza" />
+  </mat-form-field>
+
+  <table mat-table class="table">
+    <thead>
+      <tr>
+        <th></th>
+        <th *ngFor="let rol of roles">{{ rol }}</th>
+      </tr>
+    </thead>
+    <tbody class="table-group-divider">
+      <tr *ngFor="let task of rolSections">
+        <th>{{ task.name }}</th>
+        <td *ngFor="let rol of roles">
+          <app-rol-option [name]="task.name" [rol]="rol"></app-rol-option>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</form>

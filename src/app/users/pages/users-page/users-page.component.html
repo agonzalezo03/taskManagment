@@ -1,0 +1,16 @@
+
+<div>
+  <div class="p-3 d-flex justify-content-end">
+    <app-new-user-dialog></app-new-user-dialog>
+  </div>
+<div class="d-flex">
+  @for (user of users; track $index) {
+
+    <mat-card class="w-25 p-2">
+      <h4>{{user.name}}</h4>
+    </mat-card>
+
+  }
+
+</div>
+</div>

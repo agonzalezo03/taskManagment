@@ -1,0 +1,12 @@
+<div>
+  <div class="d-flex justify-content-end p-4">
+    <app-new-rol-dialog></app-new-rol-dialog>
+  </div>
+  <div class="d-flex gap-3">
+    @for (rol of allRoles; track $index) {
+      <mat-card class="w-25 p-3">
+        <h5>{{rol.name}}</h5>
+      </mat-card>
+    }
+  </div>
+</div>
