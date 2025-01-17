@@ -23,5 +23,25 @@ export class RolesPageComponent implements OnInit {
     })
   }
 
+  getPermissionText(permissions: { resourceName: string; permission: number }[], resource: string): string {
+    const permission = permissions.find(p => p.resourceName === resource);
+    if (!permission) {
+      return 'Sin Permiso';
+    }
+
+    switch (permission.permission) {
+      case 1:
+        return 'Ver';
+      case 2:
+        return 'Editar';
+      case 3:
+        return 'Ocultar';
+      default:
+        return 'Desconocido';
+    }
+  }
+
+
+
 
 }

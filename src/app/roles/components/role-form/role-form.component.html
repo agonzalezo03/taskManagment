@@ -1,23 +1,48 @@
-<form action="" class="p-3">
-  <mat-form-field class="example-full-width">
-    <mat-label>Name</mat-label>
-    <input matInput formControlName="name" placeholder="Ex. Pizza" />
+<form [formGroup]="roleForm" (ngSubmit)="addRol()" class="p-4">
+  <!-- Campo para el nombre del rol -->
+  <mat-form-field class="full-width">
+    <mat-label>Nombre del Rol</mat-label>
+    <input matInput formControlName="name" placeholder="Nombre del rol">
   </mat-form-field>
 
-  <table mat-table class="table">
+  <!-- Tabla con los recursos y sus permisos usando Bootstrap -->
+  <table class="table table-bordered table-striped">
     <thead>
       <tr>
-        <th></th>
-        <th *ngFor="let rol of roles">{{ rol }}</th>
+        <th>Recurso</th>
+        <th>Ver</th>
+        <th>Modificar/Crear</th>
+        <th>Ocultar</th>
       </tr>
     </thead>
-    <tbody class="table-group-divider">
-      <tr *ngFor="let task of rolSections">
-        <th>{{ task.name }}</th>
-        <td *ngFor="let rol of roles">
-          <app-rol-option [name]="task.name" [rol]="rol"></app-rol-option>
+    <tbody formArrayName="permissions">
+      <tr *ngFor="let permission of permissions.controls; let i = index" [formGroupName]="i">
+        <td>{{ resources[i].name }}</td>
+
+        <td>
+          <mat-radio-group [name]="resources[i].name" formControlName="permission" aria-label="Select Permission">
+            <mat-radio-button checked [value]="1"></mat-radio-button>
+          </mat-radio-group>
+        </td>
+
+        <td>
+          <mat-radio-group [name]="resources[i].name" formControlName="permission" aria-label="Select Permission">
+            <mat-radio-button [value]="2"></mat-radio-button>
+          </mat-radio-group>
+        </td>
+
+        <td>
+          <mat-radio-group [name]="resources[i].name" formControlName="permission" aria-label="Select Permission">
+            <mat-radio-button [value]="3"></mat-radio-button>
+          </mat-radio-group>
         </td>
       </tr>
     </tbody>
   </table>
+
+  <!-- Botones de acción -->
+  <div class="d-flex gap-3">
+    <button mat-flat-button color="warn" (click)="onNoClick()">Cerrar</button>
+    <button mat-flat-button type="submit" [disabled]="!roleForm.valid" color="primary">Crear</button>
+  </div>
 </form>

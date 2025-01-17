@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { TasksLayoutComponent } from '../shared/components/tasks-layout/tasks-layout.component';
 import { TasksComponent } from './pages/tasks/tasks.component';
+import { TaskDetailComponent } from './pages/task-detail/task-detail.component';
 
 const routes: Routes = [
   {
@@ -10,6 +11,9 @@ const routes: Routes = [
     children: [
       {
         path:'list', component: TasksComponent
+      },
+      {
+        path:'detail/:id', component: TaskDetailComponent
       },
       {
         path: '**', redirectTo: 'list'

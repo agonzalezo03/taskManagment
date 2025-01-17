@@ -10,6 +10,8 @@ import { TaskFormComponent } from './components/task-form/task-form.component';
 import { NewTaskDialogComponent } from './components/new-task-dialog/new-task-dialog.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CategoriesModule } from '../categories/categories.module';
+import { DifficultyComponent } from './components/difficulty/difficulty.component';
+import { TaskDetailComponent } from './pages/task-detail/task-detail.component';
 
 
 @NgModule({
@@ -18,7 +20,9 @@ import { CategoriesModule } from '../categories/categories.module';
     TasksComponent,
     TaskCardComponent,
     TaskFormComponent,
-    NewTaskDialogComponent
+    NewTaskDialogComponent,
+    DifficultyComponent,
+    TaskDetailComponent
   ],
   imports: [
     CommonModule,

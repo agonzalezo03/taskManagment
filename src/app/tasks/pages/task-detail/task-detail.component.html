@@ -1,0 +1,73 @@
+<div class="container mt-3 d-flex ">
+  <div class="col-9 info">
+  <h2>{{task.name}}</h2>
+
+  <p>{{task.description}}</p>
+
+</div>
+
+
+
+<div class="col-3 detail">
+  <h5>Usuarios asignados</h5>
+  <mat-chip-set aria-label="Usuarios asignados">
+    @for (usr of task.assign; track $index) {
+      <mat-chip>{{usr}}</mat-chip>
+    }
+  </mat-chip-set>
+  <h5>Dificultad</h5>
+  <app-difficulty [difficulty]="+task.difficulty"></app-difficulty>
+
+  <h5>Categorias</h5>
+  <div class="d-flex flex-wrap  gap-1" aria-label="Categorias">
+    @for (cat of task.categories; track $index) {
+      <span [ngClass]="{'text-bg-danger': cat === 'epic'}" class="badge text-bg-secondary">{{cat}}</span>
+
+    }
+  </div>
+</div>
+</div>
+
+
+@if (task.categories.includes('epic')) {
+  <div class=" container mt-3 d-flex justify-content-end">
+    <app-new-task-dialog [epicId]="task.id"></app-new-task-dialog>
+
+  </div>
+  <div class="d-flex  justify-content-center">
+
+  <div class=" row d-flex  justify-content-between mt-5 w-100">
+    <app-list-tasks
+    class="col-4"
+        cdkDropList
+        #pending="cdkDropList"
+        [cdkDropListData]="tasksPending"
+        [cdkDropListConnectedTo]="[curse, end]"
+        (cdkDropListDropped)="drop($event)"
+        [attr.data-state]="states.pending"
+    [state]="states.pending" [taskList]="tasksPending" (taskUpdated)="loadTasks()"></app-list-tasks>
+
+    <app-list-tasks
+    class="col-4"
+        cdkDropList
+        #curse="cdkDropList"
+        [cdkDropListData]="tasksCurse"
+        [cdkDropListConnectedTo]="[pending, end]"
+        (cdkDropListDropped)="drop($event)"
+        [attr.data-state]="states.curse"
+      [state]="states.curse"  [taskList]="tasksCurse" (taskUpdated)="loadTasks()"></app-list-tasks>
+
+    <app-list-tasks
+    class="col-4"
+        cdkDropList
+        #end="cdkDropList"
+        [cdkDropListData]="tasksEnd"
+        [cdkDropListConnectedTo]="[pending, curse]"
+        (cdkDropListDropped)="drop($event)"
+        [attr.data-state]="states.end"
+   [state]="states.end" [taskList]="tasksEnd" (taskUpdated)="loadTasks()"></app-list-tasks>
+  </div>
+</div>
+}
+
+

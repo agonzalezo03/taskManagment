@@ -7,7 +7,7 @@ import { NewRolDialogComponent } from './components/new-rol-dialog/new-rol-dialo
 import { RolesPageComponent } from './pages/roles-page/roles-page.component';
 import { MaterialModule } from '../material/material.module';
 import { RolOptionComponent } from './components/rol-option/rol-option.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -19,6 +19,7 @@ import { FormsModule } from '@angular/forms';
   ],
   imports: [
     CommonModule,
+    ReactiveFormsModule,
     MaterialModule,
     RolesRoutingModule
   ]

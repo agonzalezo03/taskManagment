@@ -2,29 +2,41 @@
   <form [formGroup]="taskForm" (ngSubmit)="newTask()" class="form-dialog">
     <mat-tab-group>
       <mat-tab label="Tarea">
-        <div class="d-flex flex-column">
-          <mat-form-field class="example-full-width">
+        <div class="d-flex flex-column w-100">
+        <div class="d-flex w-100 gap-3">
+          <mat-form-field class="w-100">
             <mat-label>Name</mat-label>
             <input matInput formControlName="name" placeholder="Ex. Pizza" />
           </mat-form-field>
+
+          <mat-form-field class="w-100">
+            <mat-label>State</mat-label>
+            <mat-select formControlName="state">
+              <mat-option *ngFor="let state of states" [value]="state">{{ state }}</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
 
           <mat-form-field class="example-full-width">
             <mat-label>Description</mat-label>
             <textarea matInput formControlName="description" placeholder="Ex. It makes me feel..."></textarea>
           </mat-form-field>
 
-          <mat-form-field>
-            <mat-label>State</mat-label>
-            <mat-select formControlName="state">
-              <mat-option *ngFor="let state of states" [value]="state">{{ state }}</mat-option>
-            </mat-select>
-          </mat-form-field>
 
-          <div class="p-2 d-flex justify-content-center align-items-center">
-            <mat-slider min="0" max="100000" step="1000" showTickMarks discrete >
-              <input matSliderThumb>
+
+          <div class="d-flex">
+          <div class="p-2 w-75 d-flex flex-column justify-content-center align-items-center">
+            <h5>Dificultad</h5>
+            <app-difficulty [difficulty]="taskForm.value.difficulty"></app-difficulty>
+            <mat-slider class="w-50" min="0" max="5" step="1" showTickMarks discrete >
+              <input formControlName="difficulty" matSliderThumb>
             </mat-slider>
         </div>
+        <div class="w-25 d-flex flex-column">
+        <mat-checkbox formControlName="epic" >Epic</mat-checkbox>
+        <span>Marcalo para crear un tarea "epica" con subtareas</span>
+        </div>
+      </div>
         </div>
       </mat-tab>
 
@@ -35,20 +47,19 @@
             matInput
             formControlName="categories"
             placeholder="New Category..."
-            [matChipInputFor]="chipGrid"
-            [matAutocomplete]="auto"
+            [matChipInputFor]="chipGridCat"
+            [matAutocomplete]="autoCat"
             [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
             (matChipInputTokenEnd)="addCat($event.value)"
           />
-          <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)">
+          <mat-autocomplete #autoCat="matAutocomplete" (optionSelected)="selectedCat($event)">
             <mat-option *ngFor="let cat of filteredCategories" [value]="cat">
               {{ cat.name }}
             </mat-option>
           </mat-autocomplete>
         </mat-form-field>
 
-
-        <mat-chip-grid #chipGrid>
+        <mat-chip-grid #chipGridCat>
           <mat-chip-row *ngFor="let cat of selectedCategories" (removed)="removeCat(cat)">
             {{ cat.name }}
             <button matChipRemove [attr.aria-label]="'remove ' + cat.name">
@@ -56,15 +67,44 @@
             </button>
           </mat-chip-row>
         </mat-chip-grid>
+
       </mat-tab>
 
 
-      <mat-tab label="Asignados"> Content 2 </mat-tab>
+      <mat-tab label="Asignados">
+        <mat-form-field class="w-100">
+          <mat-label>Usuarios</mat-label>
+          <input
+            matInput
+            formControlName="assign"
+            placeholder="New User..."
+            [matChipInputFor]="chipGridUser"
+            [matAutocomplete]="autoUser"
+            [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+            (matChipInputTokenEnd)="addUser($event.value)"
+          />
+          <mat-autocomplete #autoUser="matAutocomplete" (optionSelected)="selectedUsr($event)">
+            <mat-option *ngFor="let usr of filteredUsers" [value]="usr">
+              {{ usr.name }}
+            </mat-option>
+          </mat-autocomplete>
+        </mat-form-field>
+
+
+        <mat-chip-grid #chipGridUser>
+          <mat-chip-row *ngFor="let usr of selectedUsers" (removed)="removeUsr(usr)">
+            {{ usr.name }}
+            <button matChipRemove [attr.aria-label]="'remove ' + usr.name">
+              <mat-icon>cancel</mat-icon>
+            </button>
+          </mat-chip-row>
+        </mat-chip-grid>
+      </mat-tab>
     </mat-tab-group>
 
     <mat-dialog-actions class="d-flex gap-3">
       <button mat-flat-button color="warn" (click)="onNoClick()">Cerrar</button>
-      <button mat-flat-button type="submit" color="primary">Crear</button>
+      <button mat-flat-button type="submit" [disabled]="!taskForm.valid" color="primary">Crear</button>
     </mat-dialog-actions>
   </form>
 </mat-dialog-content>

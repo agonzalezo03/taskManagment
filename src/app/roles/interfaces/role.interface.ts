@@ -1,8 +1,6 @@
-import { RoleOptions } from "./role-options.enum";
 
 export interface Rol{
+  id: string
   name :String,
-  task :RoleOptions,
-  user :RoleOptions,
-  category : RoleOptions
+  permissions :{resourceName: string, permission: number}[]
 }

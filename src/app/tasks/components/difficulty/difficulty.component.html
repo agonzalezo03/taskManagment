@@ -1,0 +1,11 @@
+<div class="fire-container">
+  <div *ngFor="let fire of fires; let i = index">
+    <img
+      src="fuego.png"
+      alt="Fire"
+      [ngStyle]="{'opacity': getFireOpacity(i)}"
+    >
+  </div>
+</div>
+
+

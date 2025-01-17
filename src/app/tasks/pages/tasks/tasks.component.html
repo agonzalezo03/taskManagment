@@ -4,12 +4,32 @@
   <app-new-task-dialog></app-new-task-dialog>
   <app-categories-dialog></app-categories-dialog>
 </div>
-<div class="d-flex gap-3 justify-content-between mt-5">
-  <app-list-tasks  [state]="states.pending" [taskList]="tasksPending" (taskUpdated)="loadTasks()"></app-list-tasks>
-
-  <app-list-tasks [state]="states.curse"  [taskList]="tasksCurse" (taskUpdated)="loadTasks()"></app-list-tasks>
+<div class="d-flex gap-3 justify-content-between mt-5 col">
+  <app-list-tasks
+      cdkDropList
+      #pending="cdkDropList"
+      [cdkDropListData]="tasksPending"
+      [cdkDropListConnectedTo]="[curse, end]"
+      (cdkDropListDropped)="drop($event)"
+      [attr.data-state]="states.pending"
+  [state]="states.pending" [taskList]="tasksPending" (taskUpdated)="loadTasks()"></app-list-tasks>
 
   <app-list-tasks
+      cdkDropList
+      #curse="cdkDropList"
+      [cdkDropListData]="tasksCurse"
+      [cdkDropListConnectedTo]="[pending, end]"
+      (cdkDropListDropped)="drop($event)"
+      [attr.data-state]="states.curse"
+    [state]="states.curse"  [taskList]="tasksCurse" (taskUpdated)="loadTasks()"></app-list-tasks>
+
+  <app-list-tasks
+      cdkDropList
+      #end="cdkDropList"
+      [cdkDropListData]="tasksEnd"
+      [cdkDropListConnectedTo]="[pending, curse]"
+      (cdkDropListDropped)="drop($event)"
+      [attr.data-state]="states.end"
  [state]="states.end" [taskList]="tasksEnd" (taskUpdated)="loadTasks()"></app-list-tasks>
 </div>
 </div>

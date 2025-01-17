@@ -14,6 +14,8 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatSliderModule} from '@angular/material/slider';
 import {MatRadioModule} from '@angular/material/radio';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+
 
 
 import { DragDropModule } from '@angular/cdk/drag-drop';
@@ -36,6 +38,7 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
     MatTabsModule,
     MatSliderModule,
     MatRadioModule,
+    MatCheckboxModule
   ]
 })
 export class MaterialModule { }

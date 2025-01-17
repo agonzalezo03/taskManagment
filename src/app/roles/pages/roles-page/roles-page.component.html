@@ -3,10 +3,31 @@
     <app-new-rol-dialog></app-new-rol-dialog>
   </div>
   <div class="d-flex gap-3">
-    @for (rol of allRoles; track $index) {
-      <mat-card class="w-25 p-3">
-        <h5>{{rol.name}}</h5>
-      </mat-card>
-    }
+    <table class="table table-bordered table-striped">
+      <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>Task</th>
+          <th>Users</th>
+          <th>Roles</th>
+          <th>Category</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let rol of allRoles">
+          <td>{{ rol.name }}</td>
+          <td>{{ getPermissionText(rol.permissions, 'Task') }}</td>
+          <td>{{ getPermissionText(rol.permissions, 'Users') }}</td>
+          <td>{{ getPermissionText(rol.permissions, 'Roles') }}</td>
+          <td>{{ getPermissionText(rol.permissions, 'Category') }}</td>
+          <td class="d-flex gap-3">
+            <button   mat-mini-fab color="primary"><mat-icon>save</mat-icon></button>
+            <button   mat-mini-fab color="warn"><mat-icon>delete</mat-icon></button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
   </div>
 </div>

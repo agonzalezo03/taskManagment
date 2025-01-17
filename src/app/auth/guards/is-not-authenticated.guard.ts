@@ -2,6 +2,7 @@ import { inject } from '@angular/core';
 import { CanActivateFn, Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
 import { AuthStatus } from '../interfaces/auth-status.enum';
+import { map } from 'rxjs';
 
 
 export const isNotAuthenticatedGuard: CanActivateFn = (route, state) => {
@@ -12,15 +13,13 @@ export const isNotAuthenticatedGuard: CanActivateFn = (route, state) => {
 
   const authService = inject(AuthService);
 
-
-  if (authService.authStatus() === AuthStatus.authenticated){
-    router.navigateByUrl('/task')
-    return false;
-  }
-
-
-
-
-  console.log('noauthenticated', route, state)
-  return true;
+  return authService.checkAuthStatus().pipe(
+    map((isAuthenticated) => {
+      if (isAuthenticated && authService.authStatus() === AuthStatus.authenticated) {
+        router.navigateByUrl('/task');
+        return false;
+      }
+      return true;
+    })
+  );
 };
