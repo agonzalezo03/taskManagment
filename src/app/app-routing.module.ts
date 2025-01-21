@@ -43,6 +43,15 @@ const routes: Routes = [
     loadChildren: () => import('./roles/roles.module').then(m => m.RolesModule)
   },
   {
+    path: 'sprints',
+    // canActivate: [permissionGuard],
+    data: {
+      resource: 'Sprint',
+      permissionLevel: 1
+    },
+    loadChildren: () => import('./sprints/sprints.module').then(m => m.SprintsModule)
+  },
+  {
     path: '**',
     redirectTo: 'auth'
   }

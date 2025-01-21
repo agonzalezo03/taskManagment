@@ -1,0 +1,64 @@
+<form class="d-flex flex-column p-4 form-dialog" [formGroup]="sprintForm" (ngSubmit)="addSprint()" autocomplete="off">
+  <mat-tab-group>
+    <mat-tab class="" label="Sprint">
+      <div class="d-flex flex-column  p-4">
+  <mat-form-field class="example-full-width">
+    <mat-label>Name</mat-label>
+    <input matInput formControlName="name" placeholder="Ex. Pizza" />
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width">
+    <mat-label>Description</mat-label>
+    <textarea matInput formControlName="description" placeholder="Ex. It makes me feel..."></textarea>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Duración del sprint</mat-label>
+    <mat-date-range-input [rangePicker]="picker" formGroupName="dateRange">
+      <input matStartDate formControlName="startDate" placeholder="Start date">
+      <input matEndDate formControlName="endDate" placeholder="End date">
+    </mat-date-range-input>
+    <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-date-range-picker #picker></mat-date-range-picker>
+  </mat-form-field>
+
+
+</div>
+</mat-tab>
+
+<mat-tab label="Tareas">
+  <mat-form-field class="w-100">
+    <mat-label>Category</mat-label>
+    <input
+      matInput
+      formControlName="tasks"
+      placeholder="New Category..."
+      [matChipInputFor]="chipGridCat"
+      [matAutocomplete]="autoCat"
+      [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+      (matChipInputTokenEnd)="addTask($event.value)"
+    />
+    <mat-autocomplete #autoCat="matAutocomplete" (optionSelected)="selectedTask($event)">
+      <mat-option *ngFor="let cat of allTasks" [value]="cat">
+        {{ cat.name }}
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
+
+  <mat-chip-grid #chipGridCat>
+    <mat-chip-row *ngFor="let cat of selectedTasks" (removed)="removeTask(cat)">
+      {{ cat.name }}
+      <button matChipRemove [attr.aria-label]="'remove ' + cat.name">
+        <mat-icon>cancel</mat-icon>
+      </button>
+    </mat-chip-row>
+  </mat-chip-grid>
+</mat-tab>
+</mat-tab-group>
+<div>
+  <mat-dialog-actions class="d-flex gap-3">
+    <button mat-flat-button color="warn" (click)="onNoClick()">Cerrar</button>
+    <button mat-flat-button type="submit" [disabled]="!sprintForm.valid" color="primary">Crear</button>
+  </mat-dialog-actions>
+</div>
+</form>

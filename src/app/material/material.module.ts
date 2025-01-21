@@ -15,6 +15,10 @@ import {MatTabsModule} from '@angular/material/tabs';
 import {MatSliderModule} from '@angular/material/slider';
 import {MatRadioModule} from '@angular/material/radio';
 import {MatCheckboxModule} from '@angular/material/checkbox';
+import { MatExpansionModule} from '@angular/material/expansion';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+
+
 
 
 
@@ -38,7 +42,9 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
     MatTabsModule,
     MatSliderModule,
     MatRadioModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    MatExpansionModule,
+    MatDatepickerModule
   ]
 })
 export class MaterialModule { }

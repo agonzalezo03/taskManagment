@@ -14,6 +14,7 @@ export class NewTaskDialogComponent {
   openDialog(): void {
     const dialogRef = this.dialog.open(TaskFormComponent, {
       data: {
+        task: '',
         epicId: this.epicId
       },
     });

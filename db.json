@@ -11,13 +11,48 @@
       "name": "new",
       "password": "new",
       "rol": "9108"
+    },
+    {
+      "id": "51a2",
+      "name": "prueba",
+      "password": "prueba",
+      "rol": "b0ab"
+    },
+    {
+      "id": "458f",
+      "name": "prueba",
+      "password": "prueba",
+      "rol": "b0ab"
+    },
+    {
+      "id": "c259",
+      "name": "prueba",
+      "password": "prueba",
+      "rol": "b0ab"
+    },
+    {
+      "id": "8fcd",
+      "name": "prueba",
+      "password": "prueba",
+      "rol": "b0ab"
+    },
+    {
+      "id": "446a",
+      "name": "prueba",
+      "password": "prueba",
+      "rol": "b0ab"
     }
   ],
   "tasks": [
     {
+      "name": "alfredoo",
+      "description": null,
+      "state": "Finished",
+      "assign": [],
+      "categories": [],
       "id": "2",
-      "name": "alfredo",
-      "state": "Finished"
+      "difficulty": null,
+      "sprintId": "37a7335e-0448-4edb-b8cf-e456966ee03b"
     },
     {
       "id": "22b4",
@@ -45,42 +80,55 @@
           "name": "isciii"
         }
       ],
-      "epic": false
+      "sprintId": "37a7335e-0448-4edb-b8cf-e456966ee03b"
     },
     {
-      "id": "3367",
-      "name": "prueba",
+      "name": "pruebaprueba",
       "description": "",
       "state": "In curse",
-      "difficulty": 2,
+      "assign": [
+        "admin"
+      ],
       "categories": [
         "cat",
         "isciii"
       ],
-      "assign": [
-        "admin"
-      ],
-      "epic": true
+      "id": "3367",
+      "difficulty": 3,
+      "epicId": {
+        "id": "3367",
+        "name": "prueba",
+        "description": "",
+        "state": "In curse",
+        "difficulty": 2,
+        "categories": [
+          "cat",
+          "isciii"
+        ],
+        "assign": [
+          "admin"
+        ]
+      },
+      "sprintId": "83c082e0-6740-46d0-9a04-3f559e0bf93f"
     },
     {
-      "id": "505e",
       "name": "new",
       "description": "newnewsadf",
       "state": "Finished",
-      "difficulty": 4,
-      "categories": [
-        "isciii",
-        "epic"
-      ],
       "assign": [
         "admin",
         "new"
       ],
-      "epic": true
+      "categories": [
+        "isciii",
+        "epic"
+      ],
+      "id": "505e",
+      "difficulty": 4,
+      "sprintId": ""
     },
     {
-      "id": "75866669-f539-4688-a312-035946f7b1ab",
-      "name": "vasce",
+      "name": "vasceee",
       "description": "casdfsadfsadf",
       "state": "Finished",
       "assign": [
@@ -90,29 +138,36 @@
         "isciii",
         "epic"
       ],
-      "difficulty": 5,
-      "epicId": "",
-      "sprintId": ""
+      "id": "75866669-f539-4688-a312-035946f7b1ab",
+      "difficulty": 2,
+      "epicId": "75866669-f539-4688-a312-035946f7b1ab",
+      "sprintId": "35fd19f8-bc79-4997-9b00-de938b38b9b7"
     },
     {
-      "id": "6991f13f-5040-4c86-b683-1da7d10429a6",
       "name": "Nueva tare increible de alberto para probar que funciona al pelo de un calvo",
       "description": "Nueva tare increible de alberto para probar que funciona al pelo de un calvoNueva tare increible de alberto para probar que funciona al pelo de un calvoNueva tare increible de alberto para probar que funciona al pelo de un calvoNueva tare increible de alberto para probar que funciona al pelo de un calvoNueva tare increible de alberto para probar que funciona al pelo de un calvoNueva tare increible de alberto para probar que funciona al pelo de un calvoNueva tare increible de alberto para probar que funciona al pelo de un calvoNueva tare increible de alberto para probar que funciona al pelo de un calvo",
-      "state": "In curse",
+      "state": "Pending",
       "assign": [],
       "categories": [
         "epic"
       ],
-      "difficulty": 2,
-      "epicId": "",
-      "sprintId": ""
+      "id": "6991f13f-5040-4c86-b683-1da7d10429a6",
+      "difficulty": 3,
+      "sprintId": "35fd19f8-bc79-4997-9b00-de938b38b9b7"
     },
     {
-      "id": "a87004d0-7fdc-42be-b79d-f01d1bab2a55",
       "name": "Nueva tare increible de alberto para probar que funciona al pelo de un calvo",
       "description": "Nueva tare increible de alberto para probar que funciona al pelo de un calvoNueva tare increible de alberto para probar que funciona al pelo de un calvoNueva tare increible de alberto para probar que funciona al pelo de un calvoNueva tare increible de alberto para probar que funciona al pelo de un calvo",
-      "state": "Pending",
-      "assign": [],
+      "state": "In curse",
+      "assign": [
+        "admin",
+        "new",
+        "prueba",
+        "prueba",
+        "prueba",
+        "prueba",
+        "prueba"
+      ],
       "categories": [
         "cat",
         "isciii",
@@ -123,8 +178,8 @@
         "basura",
         "epic"
       ],
-      "difficulty": 2,
-      "epicId": "",
+      "id": "a87004d0-7fdc-42be-b79d-f01d1bab2a55",
+      "difficulty": 3,
       "sprintId": ""
     },
     {
@@ -142,7 +197,48 @@
       ],
       "difficulty": 2,
       "epicId": "505e",
-      "sprintId": ""
+      "sprintId": "a64a"
+    },
+    {
+      "name": "subNueba",
+      "description": "asdfasdf",
+      "state": "Pending",
+      "assign": [
+        "admin"
+      ],
+      "categories": [
+        "isciii"
+      ],
+      "id": "7c1b1ddf-d351-46f7-bdc6-e8cff51c2e7a",
+      "difficulty": 2,
+      "sprintId": "f9fa0e7e-197b-4e98-80bf-a23516802d3a"
+    },
+    {
+      "id": "2a532291-3c23-4c01-81af-4fbf31cd5892",
+      "name": "subSubtask",
+      "description": "asdfsadfsadf",
+      "state": "Pending",
+      "assign": [],
+      "categories": [],
+      "difficulty": 1,
+      "epicId": "6991f13f-5040-4c86-b683-1da7d10429a6",
+      "sprintId": "f9fa0e7e-197b-4e98-80bf-a23516802d3a"
+    },
+    {
+      "id": "6760913d-7a4d-458c-a8a4-7f0246b20d74",
+      "name": "para sprint",
+      "description": "asdfsadfasdf",
+      "state": "Pending",
+      "assign": [
+        "new",
+        "prueba"
+      ],
+      "categories": [
+        "cat",
+        "pizaa"
+      ],
+      "difficulty": 2,
+      "sprintId": "ff84fb28-341b-409c-9800-a7094b1c4bb3"
     }
   ],
   "categories": [
@@ -200,18 +296,18 @@
     },
     {
       "id": "9108",
-      "name": "new",
+      "name": "new2",
       "permissions": [
         {
           "resourceName": "Task",
-          "permission": 2
-        },
-        {
-          "resourceName": "Users",
           "permission": 1
         },
         {
           "resourceName": "Roles",
+          "permission": 1
+        },
+        {
+          "resourceName": "Users",
           "permission": 1
         },
         {
@@ -226,10 +322,6 @@
       "permissions": [
         {
           "resourceName": "Task",
-          "permission": null
-        },
-        {
-          "resourceName": "Users",
           "permission": 3
         },
         {
@@ -237,8 +329,12 @@
           "permission": 3
         },
         {
+          "resourceName": "Users",
+          "permission": 3
+        },
+        {
           "resourceName": "Category",
-          "permission": null
+          "permission": 1
         }
       ]
     },
@@ -248,54 +344,6 @@
       "permissions": [
         {
           "resourceName": "Task",
-          "permission": null
-        },
-        {
-          "resourceName": "Users",
-          "permission": null
-        },
-        {
-          "resourceName": "Roles",
-          "permission": null
-        },
-        {
-          "resourceName": "Category",
-          "permission": null
-        }
-      ]
-    },
-    {
-      "id": "e93f",
-      "name": "prueba2",
-      "permissions": [
-        {
-          "resourceName": "Task",
-          "permission": 1
-        },
-        {
-          "resourceName": "Users",
-          "permission": 1
-        },
-        {
-          "resourceName": "Roles",
-          "permission": null
-        },
-        {
-          "resourceName": "Category",
-          "permission": null
-        }
-      ]
-    },
-    {
-      "id": "8402",
-      "name": "sssss",
-      "permissions": [
-        {
-          "resourceName": "Task",
-          "permission": 1
-        },
-        {
-          "resourceName": "Users",
           "permission": 1
         },
         {
@@ -303,32 +351,114 @@
           "permission": 1
         },
         {
-          "resourceName": "Category",
+          "resourceName": "Users",
           "permission": 1
+        },
+        {
+          "resourceName": "Category",
+          "permission": 2
         }
       ]
-    },
+    }
+  ],
+  "sprints": [
     {
-      "id": "b4b1",
+      "id": "a64a",
       "name": "prueba",
-      "permissions": [
-        {
-          "resourceName": "Task",
-          "permission": 1
-        },
-        {
-          "resourceName": "Users",
-          "permission": 3
-        },
-        {
-          "resourceName": "Roles",
-          "permission": 3
-        },
-        {
-          "resourceName": "Category",
-          "permission": 1
-        }
-      ]
+      "description": "Prueba desc",
+      "startDate": "20-01-2025",
+      "endDate": "29-01-2025"
+    },
+    {
+      "id": "35fd19f8-bc79-4997-9b00-de938b38b9b7",
+      "name": "nueva",
+      "description": "Este es muy nuevo",
+      "startDate": "13-01-2025",
+      "endDate": "21-01-2025"
+    },
+    {
+      "id": "f9fa0e7e-197b-4e98-80bf-a23516802d3a",
+      "name": "nueva prueba",
+      "description": "A ver si ahora va",
+      "startDate": "07-01-2025",
+      "endDate": "15-01-2025"
+    },
+    {
+      "id": "00ec04ef-bb81-459d-b264-3b95a90cbc73",
+      "name": "ahora si que si",
+      "description": "ahora si que si",
+      "startDate": "03-01-2025",
+      "endDate": "10-01-2025"
+    },
+    {
+      "id": "37a7335e-0448-4edb-b8cf-e456966ee03b",
+      "name": "ahora si que si",
+      "description": "ahora si que si",
+      "startDate": "03-01-2025",
+      "endDate": "10-01-2025"
+    },
+    {
+      "id": "83c082e0-6740-46d0-9a04-3f559e0bf93f",
+      "name": "a ver si ahora va",
+      "description": "asdfas",
+      "startDate": "24-01-2025",
+      "endDate": "31-01-2025"
+    },
+    {
+      "id": "bed473e3-abde-4f71-a405-0121eabd4ae8",
+      "name": "esta es definitiba",
+      "description": "asdf",
+      "startDate": "14-01-2025",
+      "endDate": "15-01-2025"
+    },
+    {
+      "id": "b72530de-3687-4889-82d1-d3ccc8b490cf",
+      "name": "sprint",
+      "description": "asdfasdf",
+      "startDate": "16-01-2025",
+      "endDate": "30-01-2025"
+    },
+    {
+      "id": "ff84fb28-341b-409c-9800-a7094b1c4bb3",
+      "name": "sprint2",
+      "description": "adfas",
+      "startDate": "21-01-2025",
+      "endDate": "30-01-2025"
+    },
+    {
+      "id": "46352ed5-4435-4692-86b3-bbe7005ee415",
+      "name": "123",
+      "description": "",
+      "startDate": "24-01-2025",
+      "endDate": "25-01-2025"
+    },
+    {
+      "id": "0836d7b7-4681-4b49-9c3d-d224fd8647d2",
+      "name": "1234",
+      "description": "",
+      "startDate": "22-01-2025",
+      "endDate": "23-01-2025"
+    },
+    {
+      "id": "21f8838e-a35a-4c15-9499-8da303d7c0c8",
+      "name": "12345",
+      "description": "",
+      "startDate": "26-01-2025",
+      "endDate": "27-01-2025"
+    },
+    {
+      "id": "1d372bb1-8eec-459b-ad19-af6c909ea904",
+      "name": "dfgsdfg",
+      "description": "",
+      "startDate": "01-01-2025",
+      "endDate": "01-01-2025"
+    },
+    {
+      "id": "047a4253-58b8-4e2f-916a-eca3f0e7bae6",
+      "name": "asdf",
+      "description": "",
+      "startDate": "02-12-2024",
+      "endDate": "03-12-2024"
     }
   ]
 }

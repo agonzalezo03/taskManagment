@@ -27,9 +27,9 @@ export class TasksComponent implements OnInit {
   loadTasks(){
     console.log("e")
     this.tasksService.getTasks().subscribe( tasks => {
-      this.tasksPending = tasks.filter( item => item.state === State.pending && item.epicId === undefined);
-      this.tasksCurse = tasks.filter( item => item.state === State.curse && item.epicId === undefined);
-      this.tasksEnd = tasks.filter( item => item.state === State.end && item.epicId === undefined);
+      this.tasksPending = tasks.filter( item => item.state === State.pending && item.epicId === undefined || item.epicId === '');
+      this.tasksCurse = tasks.filter( item => item.state === State.curse && item.epicId === undefined || item.epicId === '');
+      this.tasksEnd = tasks.filter( item => item.state === State.end && item.epicId === undefined || item.epicId === '');
     })
   }
 

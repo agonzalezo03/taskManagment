@@ -33,7 +33,8 @@ import { TaskDetailComponent } from './pages/task-detail/task-detail.component';
     FormsModule
   ],
   exports: [
-    TasksComponent
+    TasksComponent,
+    TaskCardComponent
   ]
 })
 export class TasksModule { }

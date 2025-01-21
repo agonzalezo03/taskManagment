@@ -13,7 +13,8 @@ export class TasksLayoutComponent {
   public menuItems = [
     {name: 'task', url: '/task'},
     {name: 'users', url: '/users'},
-    {name: 'roles', url: '/roles'}
+    {name: 'roles', url: '/roles'},
+    {name: 'sprints', url: '/sprints'}
   ]
 
   navigate(item :{name: string, url: string}){

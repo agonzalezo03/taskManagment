@@ -18,4 +18,12 @@ export class RolesService {
   addRol(rol :Rol): Observable<Rol>{
     return this.http.post<Rol>(`${this.URL}/roles`, rol)
   }
+
+  updateRol(rol: Rol): Observable<Rol>{
+    return this.http.put<Rol>(`${this.URL}/roles/${rol.id}`, rol)
+  }
+
+  deleteRol(rolId: string): Observable<Rol>{
+    return this.http.delete<Rol>(`${this.URL}/roles/${rolId}`)
+  }
 }
